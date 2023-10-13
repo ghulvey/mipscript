@@ -1,0 +1,14 @@
+CMakeLists.txt.user
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+CMakeLists
+
+*.a
+MipScript
+CMakeFiles
+.vs/*
+.vscode/*
+Testing
+build
+_deps
