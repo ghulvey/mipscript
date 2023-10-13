@@ -8,6 +8,7 @@
 enum StatementType {
     INT_DEC,
     ASSIGNMENT,
+    VARIABLE,
     ADD,
     SUB,
     MUL,
@@ -18,9 +19,10 @@ enum StatementType {
     BLOCK
 };
 
-const std::string STATEMENT_NAMES[10] = {
+const std::string STATEMENT_NAMES[11] = {
     "INT_DEC",
     "ASSIGN",
+    "VARIABLE",
     "ADD",
     "SUB",
     "MUL",

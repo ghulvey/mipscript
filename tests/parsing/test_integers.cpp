@@ -11,12 +11,12 @@ void testIntegerParsingCase(std::string statement, std::string variableName, int
     p.parseStatement(p.getAST()->getRoot(), statement);
     SyntaxNode* root = p.getAST()->getRoot();
     try {
-        assert (root->getChildren().size() == 1);
-        assert (root->getChildren()[0]->getType() == INT_DEC);
-        assert (root->getChildren()[0]->getValue() == variableName);
-        assert (root->getChildren()[0]->getChildren().size() == 1);
-        assert (root->getChildren()[0]->getChildren()[0]->getType() == VALUE);
-        assert (stoi(root->getChildren()[0]->getChildren()[0]->getValue()) == num);
+        EXPECT_EQ(root->getChildren().size(), 1);
+        EXPECT_EQ(root->getChildren()[0]->getType(), INT_DEC);
+        EXPECT_EQ(root->getChildren()[0]->getValue(), variableName);
+        EXPECT_EQ(root->getChildren()[0]->getChildren().size(), 1);
+        EXPECT_EQ(root->getChildren()[0]->getChildren()[0]->getType(), VALUE);
+        EXPECT_EQ(stoi(root->getChildren()[0]->getChildren()[0]->getValue()), num);
     } catch (std::exception e) {
         std::cout << " [FAIL]" << std::endl;
         return;

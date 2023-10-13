@@ -1,4 +1,5 @@
 #include "./parser/parser.hpp"
+#include "./evaluator/evaluator.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -12,6 +13,16 @@ int main(int argc, char** argv) {
 
     // Parse the file
     Parser p(file);
+
+    // Evaluate the AST
+    Evaluator e(p.getAST());
+    e.evaluate();
+
+    // Get the instructions
+    std::vector<std::string> instructions = e.getInstructions();
+    for(int i = 0; i < instructions.size(); ++i) {
+        std::cout << instructions[i] << std::endl;
+    }
 
     // Close the file
     file.close();

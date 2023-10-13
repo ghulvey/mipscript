@@ -198,6 +198,19 @@ Parser/fast:
 .PHONY : Parser/fast
 
 #=============================================================================
+# Target rules for targets named Evaluator
+
+# Build rule for target.
+Evaluator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Evaluator
+.PHONY : Evaluator
+
+# fast build rule for target.
+Evaluator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/build
+.PHONY : Evaluator/fast
+
+#=============================================================================
 # Target rules for targets named MipScript
 
 # Build rule for target.
@@ -287,6 +300,30 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+src/evaluator/Evaluator.o: src/evaluator/Evaluator.cpp.o
+.PHONY : src/evaluator/Evaluator.o
+
+# target to build an object file
+src/evaluator/Evaluator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/src/evaluator/Evaluator.cpp.o
+.PHONY : src/evaluator/Evaluator.cpp.o
+
+src/evaluator/Evaluator.i: src/evaluator/Evaluator.cpp.i
+.PHONY : src/evaluator/Evaluator.i
+
+# target to preprocess a source file
+src/evaluator/Evaluator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/src/evaluator/Evaluator.cpp.i
+.PHONY : src/evaluator/Evaluator.cpp.i
+
+src/evaluator/Evaluator.s: src/evaluator/Evaluator.cpp.s
+.PHONY : src/evaluator/Evaluator.s
+
+# target to generate assembly for a file
+src/evaluator/Evaluator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/src/evaluator/Evaluator.cpp.s
+.PHONY : src/evaluator/Evaluator.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -445,6 +482,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... Evaluator"
 	@echo "... IntegerParsingTest"
 	@echo "... MipScript"
 	@echo "... Parser"
@@ -454,6 +492,9 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... src/evaluator/Evaluator.o"
+	@echo "... src/evaluator/Evaluator.i"
+	@echo "... src/evaluator/Evaluator.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

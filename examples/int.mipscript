@@ -1,5 +1,15 @@
+## Hello world from mipscript, this will be in compiled code
+# Mipscript does its best to translate your formatting to MIPS assembly
+# This is a comment - it will be ignored by the compiler, because it starts with one hash
+## This is a comment too - but it will be added to the compiled code, because it starts with two hashes
+
+# The blank lines above and below this comment will be outputted as blank lines in the compiled code
+
 int f = 0;
 int y = -1;
+int f = 0;
 int z = 1;
 int x = 2147483647;
-int y = -2147483648;
+int a = -2147483648;
+f = 5;
+y = 2;

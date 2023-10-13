@@ -17,11 +17,12 @@ enable_testing()
 
 add_library(SyntaxTree ./src/parser/SyntaxTree.cpp ./src/parser/SyntaxNode.cpp ./src/parser/SyntaxTree.hpp)
 add_library(Parser ./src/parser/Parser.cpp ./src/parser/Parser.hpp)
+add_library(Evaluator ./src/evaluator/Evaluator.cpp ./src/evaluator/Evaluator.hpp)
 
 add_executable(MipScript ./src/main.cpp)
 
 
-target_link_libraries(MipScript SyntaxTree Parser)
+target_link_libraries(MipScript SyntaxTree Parser Evaluator)
 
 
 

@@ -48,15 +48,49 @@ void Parser::newLine(SyntaxNode* root) {
 }
 
 void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
+    removeLeadingWhitespace(statement);
+    if(statement == "") {
+        newLine(root);
+        return;
+    }
+
+    int i = 0;
+    // Check if the statement is a comment
+    if(statement[i] == '#') {
+        ++i;
+        if(statement[i] == '#') {
+            ++i;
+            while(statement[i] == ' ') {++i;}
+            // Add the comment to the syntax tree
+            std::cout << "Adding comment: " << statement.substr(i) << std::endl;
+            SyntaxNode* comment = new SyntaxNode(COMMENT, statement.substr(i));
+            root->addChild(comment);
+            return;
+        }
+        return;
+    }
     
     // Get the type of the statement
-    int i = 0;
     char c = statement[i];
-    while(c != ' ' && c != '(' && c != '}') {
+    while(c != ' ' && c != '(' && c != '}' && c != ';') {
         i++;
         c = statement[i];
     }
     std::string type = statement.substr(0, i);
+
+    // Check for variable assignment
+    if(statement[i] == '=' || statement[i+1] == '=') {
+        std::string value = "";
+        while(c != ';') {
+            if(c != ' ' && c != '=') {value += c;}
+            i++;
+            c = statement[i];
+        }
+        SyntaxNode* assign = new SyntaxNode(ASSIGNMENT, type);
+        assign->addChild(new SyntaxNode(VALUE, value));
+        root->addChild(assign);
+        return;
+    }
 
     if(type == "int") {
         // Get the variable name
