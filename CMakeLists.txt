@@ -1,6 +1,11 @@
 project(MipScript)
+cmake_minimum_required(VERSION 3.27)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build/bin)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -10,7 +15,6 @@ FetchContent_Declare(
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
-
 
 enable_testing()
 
@@ -33,7 +37,4 @@ add_executable(WhitespaceParsingTest ./tests/parsing/test_whitespace.cpp)
 target_link_libraries(WhitespaceParsingTest SyntaxTree Parser GTest::gtest_main)
 
 include(GoogleTest)
-gtest_discover_tests(WhitespaceParsingTest)
-
-
 

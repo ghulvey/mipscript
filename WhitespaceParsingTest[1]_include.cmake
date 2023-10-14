@@ -1,5 +1,0 @@
-if(EXISTS "/Users/gavinhulvey/Documents/GitHub/mipscript/WhitespaceParsingTest[1]_tests.cmake")
-  include("/Users/gavinhulvey/Documents/GitHub/mipscript/WhitespaceParsingTest[1]_tests.cmake")
-else()
-  add_test(WhitespaceParsingTest_NOT_BUILT WhitespaceParsingTest_NOT_BUILT)
-endif()
