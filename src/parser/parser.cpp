@@ -30,6 +30,7 @@ Parser::Parser(std::fstream &file) {
         } else {
             parseStatement(ast->getRoot(), line);
         }
+        lineNumber++;
     } 
 
     ast->printTree(ast->getRoot(), 0);
@@ -72,27 +73,15 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
     
     // Get the type of the statement
     char c = statement[i];
-    while(c != ' ' && c != '(' && c != '}' && c != ';') {
+    while(c != ' ' && c != '(' && c != '}' && c != ';' && c != '=') {
         i++;
         c = statement[i];
     }
-    std::string type = statement.substr(0, i);
+    std::string symbol = statement.substr(0, i);
+    std::cout << "Symbol: " << symbol << std::endl;
 
-    // Check for variable assignment
-    if(statement[i] == '=' || statement[i+1] == '=') {
-        std::string value = "";
-        while(c != ';') {
-            if(c != ' ' && c != '=') {value += c;}
-            i++;
-            c = statement[i];
-        }
-        SyntaxNode* assign = new SyntaxNode(ASSIGNMENT, type);
-        assign->addChild(new SyntaxNode(VALUE, value));
-        root->addChild(assign);
-        return;
-    }
 
-    if(type == "int") {
+    if(symbol == "int") {
         // Get the variable name
         std::string variableName = "";
         while(c != '=') {
@@ -100,7 +89,13 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
             c = statement[i];
             i++;
         }
-    
+
+        if(symbolTable.find(variableName) != symbolTable.end()) {
+            std::runtime_error(std::to_string(lineNumber) + ": Variable " + variableName + " already declared");
+            return;
+        }
+        symbolTable[variableName] = INT_VAR;
+            
         // Get the value
         std::string value = "";
         while(c != ';') {
@@ -110,11 +105,45 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
         }
 
         if(value == "") {value = "0";}
+        std::cout << "Value: " << value << std::endl;
 
         // Add to syntax tree
         SyntaxNode* dec = new SyntaxNode(INT_DEC, variableName);
         dec->addChild(new SyntaxNode(VALUE, value));
         root->addChild(dec);
+    } else if(symbol == "print") {
+        // Get the expression
+        std::string expression = "";
+        while(c != ')') {
+            if(c != ' ' && c != '(') {expression += c;}
+            i++;
+            c = statement[i];
+        }
+
+        // Add to syntax tree
+        SyntaxNode* print = new SyntaxNode(PRINT);
+        print->addChild(new SyntaxNode(VALUE, expression));
+        root->addChild(print);
+    } else {
+        // USER DEFINED SYMBOL
+
+        StatementType type = symbolTable[symbol];
+
+        if(type == INT_VAR) {
+            // Get the value
+            std::string value = "";
+            while(c != ';') {
+                if(c != ' ' && c != '=') {value += c;}
+                i++;
+                c = statement[i];
+            }
+
+            // Add to syntax tree
+            SyntaxNode* assign = new SyntaxNode(INT_ASSIGN, symbol);
+            assign->addChild(new SyntaxNode(VALUE, value));
+            root->addChild(assign);
+        }
+
     }
 
 }

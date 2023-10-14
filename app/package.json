@@ -1,0 +1,13 @@
+{
+    "name": "project-beta",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "type": "module",
+    "scripts": {
+        "start": "browser-sync start --server --files '*.html, *.css, *.js'"
+    },
+    "dependencies": {
+        "browser-sync": "^2.29.3"
+    }
+}

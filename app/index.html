@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MipScript Editor</title>
+        <link rel="stylesheet" href="styles.css">
+        <script>
+            function runCode() {
+                let code = document.getElementById("mipscript").value;
+                let asm = Module.evalCode(code);
+                console.log(asm);
+                document.getElementById("assembly").value = asm;
+            }
+        </script>
+        <script src="./mipscript.js"></script>
+    </head>
+    <body>
+        <h1>MipScript Editor</h1>
+        <p>By: Gavin Hulvey</p>
+        <hr>
+        <div id="toolbar">
+            <button id="save">Save</button>
+            <button id="load">Load</button>
+            <button id="clear">Clear</button>
+            <button id="run" onclick="runCode()">Run</button>
+        </div>
+        <hr>
+        <div class="editor">
+            <h2>MipScript</h2>
+            <textarea id="mipscript"></textarea>
+        </div>
+        <div class="editor">
+            <h2>Assembly</h2>
+            <textarea id="assembly" disabled></textarea>
+        </div> 
+    </body>
+</html>

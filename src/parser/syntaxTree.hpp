@@ -16,10 +16,13 @@ enum StatementType {
     COMMENT,
     NEWLINE,
     VALUE,
-    BLOCK
+    BLOCK,
+    INT_ASSIGN,
+    INT_VAR,
+    PRINT,
 };
 
-const std::string STATEMENT_NAMES[11] = {
+const std::string STATEMENT_NAMES[14] = {
     "INT_DEC",
     "ASSIGN",
     "VARIABLE",
@@ -31,6 +34,9 @@ const std::string STATEMENT_NAMES[11] = {
     "NEWLINE",
     "VALUE",
     "BLOCK",
+    "INT_ASSIGN",
+    "INT",
+    "PRINT"
 };
 
 class SyntaxNode {

@@ -12,3 +12,6 @@ CMakeFiles
 Testing
 build
 _deps
+
+node_modules
+package-lock.json

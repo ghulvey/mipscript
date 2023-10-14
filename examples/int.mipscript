@@ -7,9 +7,13 @@
 
 int f = 0;
 int y = -1;
-int f = 0;
 int z = 1;
 int x = 2147483647;
 int a = -2147483648;
+
+## Update the values of f and y
 f = 5;
 y = 2;
+
+## Print the values of f and y
+print(f);

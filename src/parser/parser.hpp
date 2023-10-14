@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include "syntaxTree.hpp"
+#include <map>
 
 class Parser {
 public:
@@ -18,6 +19,8 @@ public:
     void newLine(SyntaxNode*);
 private:
     SyntaxTree* ast;
+    std::map<std::string, StatementType> symbolTable;
+    int lineNumber = 1;
 };
 
 #endif

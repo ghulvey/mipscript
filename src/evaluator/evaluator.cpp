@@ -79,13 +79,17 @@ void Evaluator::evaluate(SyntaxNode* node) {
 
     } else if(node->getType() == COMMENT) {
         instruction += "# " + node->getValue();
-    } else if(node->getType() == ASSIGNMENT) {
+    } else if(node->getType() == INT_ASSIGN && node->getChildren()[0]->getType() == VALUE) {
         // Get the variable location
         int reg = variables[node->getValue()] - 16;
 
         // Add the instruction to the list
         instruction += "addi \t$s" + std::to_string(reg) + ", \t$zero, \t" + node->getChildren()[0]->getValue();
         variables[node->getValue()] = reg + 16;
+    } else if(node->getType() == PRINT) {
+        instructions.push_back("addi \t$v0, \t$zero, \t1");
+        instructions.push_back("addi \t$a0, \t$zero, \t" + node->getChildren()[0]->getValue());
+        instruction += "syscall";
     }
     instructions.push_back(instruction);
 
