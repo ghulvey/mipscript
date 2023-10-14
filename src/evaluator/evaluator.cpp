@@ -75,6 +75,8 @@ void Evaluator::evaluate(SyntaxNode* node) {
         instructions.push_back("addi \t$v0, \t$zero, \t1");
         arithmeticEvaluation(node, 4);
         instructions.push_back("syscall");
+    } else {
+        instructions.push_back("");
     }
 
     line++;
