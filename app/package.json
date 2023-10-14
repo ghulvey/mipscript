@@ -8,6 +8,7 @@
         "start": "browser-sync start --server --files '*.html, *.css, *.js'"
     },
     "dependencies": {
-        "browser-sync": "^2.29.3"
+        "browser-sync": "^2.29.3",
+        "monaco-editor": "^0.44.0"
     }
 }

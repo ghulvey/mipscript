@@ -1,8 +1,76 @@
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+html, body {
+    height: 100%;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 2em;   
+}
+
+header > p {
+    font-size: 1.2em;
+}
+
+.toolbar {
+    background-color: #222222;
+    padding: 10px;
+    display: flex;
+  justify-content: space-between;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.toolbar > h2 {
+    display: inline;
+    font-family: monospace;
+    font-size: 1.5em;
+    color: #ffffff;
+    padding-top: 5px;
+
+}
+
+.toolbar > .buttons {
+    display: inline;
+}
+
+.toolbar > .buttons > button {
+    background-color: #023e82;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
 
 .editor {
     width: 50%;
-    float: left;
+}
+
+#assembly, #mipscript {
+    height: 600px;
 }
 
 .editor textarea {
