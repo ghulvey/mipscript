@@ -18,6 +18,9 @@ public:
     void parseStatement(SyntaxNode*, std::string&);
     void newLine(SyntaxNode*);
 private:
+
+    void arithmeticExpression(SyntaxNode*, std::string&);
+
     SyntaxTree* ast;
     std::map<std::string, StatementType> symbolTable;
     int lineNumber = 1;

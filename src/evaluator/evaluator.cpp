@@ -43,7 +43,6 @@ void Evaluator::evaluate() {
 
 void Evaluator::evaluate(SyntaxNode* node) {
 
-    std::string instruction = "";
     if(node->getType() == BLOCK) {
         for(int i = 0; i < node->getChildren().size(); ++i) {
             evaluate(node->getChildren()[i]);
@@ -60,38 +59,42 @@ void Evaluator::evaluate(SyntaxNode* node) {
 
         reg = availableStorageRegister();
         sRegistersAllocated[reg] = true;
-
-        // 1. Value is a constant
-        if(node->getChildren()[0]->getType() == VALUE) {
-            // Add the variable to the map
-            sRegisters[reg] = std::stoi(node->getChildren()[0]->getValue());
-            variables[node->getValue()] = reg + 16;
-
-            // Add the instruction to the list
-            instruction += "addi \t$s" + std::to_string(reg) + ", \t$zero, \t" + node->getChildren()[0]->getValue();
-            variables[node->getValue()] = reg + 16;
-        }
-
-        // 2. Value is a variable
-        
-
-        // 3. Value is an expression
+        variables[node->getValue()] = reg + 16;
+        std::cout << variables[node->getValue()] << std::endl;
+        arithmeticEvaluation(node, reg + 16);
+        return;
 
     } else if(node->getType() == COMMENT) {
-        instruction += "# " + node->getValue();
-    } else if(node->getType() == INT_ASSIGN && node->getChildren()[0]->getType() == VALUE) {
+        instructions.push_back("# " + node->getValue());
+    } else if(node->getType() == INT_ASSIGN) {
         // Get the variable location
-        int reg = variables[node->getValue()] - 16;
-
-        // Add the instruction to the list
-        instruction += "addi \t$s" + std::to_string(reg) + ", \t$zero, \t" + node->getChildren()[0]->getValue();
-        variables[node->getValue()] = reg + 16;
+        int reg = variables[node->getValue()];
+        arithmeticEvaluation(node, reg);
+        return;
     } else if(node->getType() == PRINT) {
         instructions.push_back("addi \t$v0, \t$zero, \t1");
-        instructions.push_back("addi \t$a0, \t$zero, \t" + node->getChildren()[0]->getValue());
-        instruction += "syscall";
+        arithmeticEvaluation(node, 4);
+        instructions.push_back("syscall");
     }
-    instructions.push_back(instruction);
 
     line++;
+}
+
+
+void Evaluator::arithmeticEvaluation(SyntaxNode* node, int reg) {
+
+    // 1. Value is a constant
+    if(node->getChildren()[0]->getType() == VALUE) {
+        instructions.push_back("addi \t" + REGISTER_NAMES[reg] + ", \t$zero, \t" + node->getChildren()[0]->getValue()); 
+    }
+
+    // 2. Value is a variable
+    else if(node->getChildren()[0]->getType() == VARIABLE) {
+        // Get the variable location
+        int varReg = variables[node->getChildren()[0]->getValue()];
+
+        // Add the instruction to the list
+        instructions.push_back("add \t" + REGISTER_NAMES[reg] + ", \t$zero, \t" + REGISTER_NAMES[varReg]);
+    }
+
 }

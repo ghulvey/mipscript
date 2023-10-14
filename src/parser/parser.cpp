@@ -104,12 +104,9 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
             c = statement[i];
         }
 
-        if(value == "") {value = "0";}
-        std::cout << "Value: " << value << std::endl;
-
         // Add to syntax tree
         SyntaxNode* dec = new SyntaxNode(INT_DEC, variableName);
-        dec->addChild(new SyntaxNode(VALUE, value));
+        arithmeticExpression(dec, value);
         root->addChild(dec);
     } else if(symbol == "print") {
         // Get the expression
@@ -122,7 +119,7 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
 
         // Add to syntax tree
         SyntaxNode* print = new SyntaxNode(PRINT);
-        print->addChild(new SyntaxNode(VALUE, expression));
+        arithmeticExpression(print, expression);
         root->addChild(print);
     } else {
         // USER DEFINED SYMBOL
@@ -140,10 +137,38 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
 
             // Add to syntax tree
             SyntaxNode* assign = new SyntaxNode(INT_ASSIGN, symbol);
-            assign->addChild(new SyntaxNode(VALUE, value));
+            arithmeticExpression(assign, value);
             root->addChild(assign);
         }
 
     }
 
+}
+
+
+void Parser::arithmeticExpression(SyntaxNode* node, std::string& statement) {
+    removeLeadingWhitespace(statement);
+
+    std::cout << "Statement: " << statement << std::endl;
+
+    if(statement == "") {
+        return;
+    }
+
+    std::string token = "";
+    int i = 0;
+    while(statement[i] != ' ' && statement[i] != ';' && statement[i] != ')' && statement.length() > i) {
+        token += statement[i];
+        i++;
+    }
+
+    std::cout << "Token: " << token << std::endl;
+
+    if(symbolTable.find(token) == symbolTable.end()) {
+        node->addChild(new SyntaxNode(VALUE, token));
+    } else {
+        node->addChild(new SyntaxNode(VARIABLE, token));
+    }
+
+    
 }
