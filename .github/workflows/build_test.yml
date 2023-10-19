@@ -19,9 +19,10 @@ jobs:
 
       - name: Build the project
         run: |
-          mkdir build
-          mkdir build/bin
-          mkdir build/lib
+          mkdir ${{github.workspace}}/build
+          mkdir ${{github.workspace}}/build/bin
+          mkdir ${{github.workspace}}/build/lib
+          ls ${{github.workspace}}
           cmake --build ${{github.workspace}}
 
       - name: Test the project
