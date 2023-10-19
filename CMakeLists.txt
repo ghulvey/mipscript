@@ -18,7 +18,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_library(SyntaxTree ./src/parser/syntaxtree.cpp ./src/parser/syntaxnode.cpp ./src/parser/syntaxtree.hpp)
+add_library(SyntaxTree ./src/parser/syntaxTree.cpp ./src/parser/syntaxNode.cpp ./src/parser/syntaxTree.hpp)
 add_library(Parser ./src/parser/parser.cpp ./src/parser/parser.hpp)
 add_library(Compiler ./src/compiler/compiler.cpp ./src/compiler/compiler.hpp)
 
