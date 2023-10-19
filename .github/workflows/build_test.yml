@@ -1,6 +1,9 @@
 name: Build
 on:
   push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
   build-project:
     runs-on: ubuntu-latest
@@ -13,14 +16,13 @@ jobs:
         run: | 
           sudo apt-get install -y cmake
           cmake --version
-          cmake ${{github.workspace}}
 
       - name: Build the project
         run: |
           mkdir build
           mkdir build/bin
           mkdir build/lib
-          cmake --build .
+          cmake --build ${{github.workspace}}
 
       - name: Test the project
-        run: ctest
+        run: ctest ${{github.workspace}}
