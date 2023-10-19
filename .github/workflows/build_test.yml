@@ -21,7 +21,5 @@ jobs:
     - name: Build and test
       run: |
         mkdir build
-        cd build
-        cmake ..
-        make
+        cmake -build .
         ctest
