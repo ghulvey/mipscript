@@ -22,8 +22,8 @@ jobs:
           mkdir ${{github.workspace}}/build
           mkdir ${{github.workspace}}/build/bin
           mkdir ${{github.workspace}}/build/lib
+          cmake -S ${{github.workspace}} -B ${{github.workspace}}
           ls ${{github.workspace}}
-          cmake --configure ${{github.workspace}}
           cmake --build ${{github.workspace}}
 
       - name: Test the project
