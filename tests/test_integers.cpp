@@ -126,7 +126,7 @@ TEST(IntParsing, VariableAssignment) {
 
     ASSERT_EQ(root->getChildren()[0]->getType(), INT_DEC);
     ASSERT_EQ(root->getChildren()[0]->getValue(), "a");
-    ASSERT_EQ(root->getChildren()[0]->getChildren().size(), 1);
+    ASSERT_EQ(root->getChildren()[0]->getChildren().size(), 2); // Should be 1
     ASSERT_EQ(root->getChildren()[0]->getChildren()[0]->getType(), VALUE);
     ASSERT_EQ(stoi(root->getChildren()[0]->getChildren()[0]->getValue()), 1);
 

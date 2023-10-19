@@ -60,7 +60,7 @@ TEST(Addition, TwoVariable) {
     p.parseStatement(p.getAST()->getRoot(), statement);
     SyntaxNode* root = p.getAST()->getRoot();
 
-    EXPECT_EQ(root->getChildren().size(), 2); // Should be 3
+    EXPECT_EQ(root->getChildren().size(), 3);
     EXPECT_EQ(root->getChildren()[0]->getType(), INT_DEC);
     EXPECT_EQ(root->getChildren()[0]->getValue(), "a");
     EXPECT_EQ(root->getChildren()[0]->getChildren().size(), 1);
