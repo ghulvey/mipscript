@@ -20,7 +20,9 @@ enable_testing()
 
 add_library(SyntaxTree ./src/parser/syntaxTree.cpp ./src/parser/syntaxNode.cpp ./src/parser/syntaxTree.hpp)
 add_library(Parser ./src/parser/parser.cpp ./src/parser/parser.hpp)
+target_link_libraries(Parser SyntaxTree)
 add_library(Compiler ./src/compiler/compiler.cpp ./src/compiler/compiler.hpp)
+target_link_libraries(Compiler SyntaxTree Parser)
 
 add_executable(MipScript ./src/main.cpp)
 target_link_libraries(MipScript SyntaxTree Parser Compiler)
