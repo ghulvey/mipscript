@@ -13,6 +13,7 @@ jobs:
         run: | 
           sudo apt-get install -y cmake
           cmake --version
+          cmake ${{github.workspace}}
 
       - name: Build the project
         run: |
