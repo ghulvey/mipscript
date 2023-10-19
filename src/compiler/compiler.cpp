@@ -1,7 +1,7 @@
-#include "evaluator.hpp"
+#include "compiler.hpp"
 #include <iostream>
 
-Evaluator::Evaluator() {
+Compiler::Compiler() {
     // Initialize all registers and memory to 0
     for(int i = 0; i < S_REGISTERS; ++i) {
         sRegisters[i] = 0;
@@ -24,11 +24,11 @@ Evaluator::Evaluator() {
     }
 }
 
-std::vector<std::string> Evaluator::getInstructions() {
+std::vector<std::string> Compiler::getInstructions() {
     return this->instructions;
 }
 
-int Evaluator::availableStorageRegister() {
+int Compiler::availableStorageRegister() {
     for(int i = 0; i < 8; ++i) {
         if(!sRegistersAllocated[i]) {
             return i;
@@ -37,11 +37,11 @@ int Evaluator::availableStorageRegister() {
     return -1;
 }
 
-void Evaluator::evaluate() {
+void Compiler::evaluate() {
     evaluate(ast->getRoot());
 }
 
-void Evaluator::evaluate(SyntaxNode* node) {
+void Compiler::evaluate(SyntaxNode* node) {
 
     if(node->getType() == BLOCK) {
         for(int i = 0; i < node->getChildren().size(); ++i) {
@@ -83,7 +83,7 @@ void Evaluator::evaluate(SyntaxNode* node) {
 }
 
 
-void Evaluator::arithmeticEvaluation(SyntaxNode* node, int reg) {
+void Compiler::arithmeticEvaluation(SyntaxNode* node, int reg) {
 
     // 1. Value is a constant
     if(node->getChildren()[0]->getType() == VALUE) {

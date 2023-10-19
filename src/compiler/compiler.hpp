@@ -1,5 +1,5 @@
-#ifndef EVALUATOR_HPP
-#define EVALUATOR_HPP
+#ifndef COMPILER_HPP
+#define COMPILER_HPP
 
 #include <string>
 #include "../parser/parser.hpp"
@@ -49,10 +49,10 @@ const int A_REGISTERS = 4;
 const int A_REGISTER_OFFSET = 4;
 const int V_REGISTERS = 2;
 const int V_REGISTER_OFFSET = 2;
-class Evaluator {
+class Compiler {
 public:
-    Evaluator();
-    Evaluator(SyntaxTree* ast) : Evaluator() { this->ast = ast; }
+    Compiler();
+    Compiler(SyntaxTree* ast) : Compiler() { this->ast = ast; }
     void evaluate();
     void evaluate(SyntaxNode* node);
     std::vector<std::string> getInstructions();

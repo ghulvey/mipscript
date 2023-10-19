@@ -20,21 +20,26 @@ enable_testing()
 
 add_library(SyntaxTree ./src/parser/SyntaxTree.cpp ./src/parser/SyntaxNode.cpp ./src/parser/SyntaxTree.hpp)
 add_library(Parser ./src/parser/Parser.cpp ./src/parser/Parser.hpp)
-add_library(Evaluator ./src/evaluator/Evaluator.cpp ./src/evaluator/Evaluator.hpp)
+add_library(Compiler ./src/compiler/compiler.cpp ./src/compiler/compiler.hpp)
 
 add_executable(MipScript ./src/main.cpp)
+target_link_libraries(MipScript SyntaxTree Parser Compiler)
 
+add_executable(IntegerTest ./tests/test_integers.cpp)
+target_link_libraries(IntegerTest SyntaxTree Parser Compiler GTest::gtest_main)
+add_test(IntegerTest ./build/bin/IntegerTest)
 
-target_link_libraries(MipScript SyntaxTree Parser Evaluator)
+add_executable(WhitespaceTest ./tests/test_whitespace.cpp)
+target_link_libraries(WhitespaceTest SyntaxTree Parser Compiler GTest::gtest_main)
+add_test(WhitespaceTest ./build/bin/WhitespaceTest)
 
+add_executable(CommentTest ./tests/test_comments.cpp)
+target_link_libraries(CommentTest SyntaxTree Parser Compiler GTest::gtest_main)
+add_test(CommentTest ./build/bin/CommentTest)
 
-
-add_executable(IntegerParsingTest ./tests/parsing/test_integers.cpp)
-target_link_libraries(IntegerParsingTest SyntaxTree Parser GTest::gtest_main)
-add_test(IntegerParsingTest IntegerParsingTest)
-
-add_executable(WhitespaceParsingTest ./tests/parsing/test_whitespace.cpp)
-target_link_libraries(WhitespaceParsingTest SyntaxTree Parser GTest::gtest_main)
+add_executable(AdditionTest ./tests/test_addition.cpp)
+target_link_libraries(AdditionTest SyntaxTree Parser Compiler GTest::gtest_main)
+#add_test(AdditionTest ./build/bin/AdditionTest)
 
 include(GoogleTest)
 

@@ -84,7 +84,7 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
     if(symbol == "int") {
         // Get the variable name
         std::string variableName = "";
-        while(c != '=') {
+        while(c != '=' && c != ';') {
             if(c != ' ') {variableName += c;}
             c = statement[i];
             i++;
@@ -102,6 +102,10 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
             if(c != ' ' && c != '=') {value += c;}
             i++;
             c = statement[i];
+        }
+
+        if(value == "") {
+            value = "0";
         }
 
         // Add to syntax tree

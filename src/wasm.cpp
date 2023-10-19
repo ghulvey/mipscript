@@ -31,7 +31,7 @@ std::string evalCode(std::string code) {
     
     SyntaxNode* root = p.getAST()->getRoot();
 
-    Evaluator e(p.getAST());
+    Compiler e(p.getAST());
     e.evaluate();
 
     std::vector<std::string> instructions = e.getInstructions();

@@ -1,5 +1,5 @@
 #include "./parser/parser.hpp"
-#include "./evaluator/evaluator.hpp"
+#include "./compiler/compiler.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
     Parser p(file);
 
     // Evaluate the AST
-    Evaluator e(p.getAST());
+    Compiler e(p.getAST());
     e.evaluate();
 
     // Get the instructions

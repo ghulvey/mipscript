@@ -198,17 +198,17 @@ Parser/fast:
 .PHONY : Parser/fast
 
 #=============================================================================
-# Target rules for targets named Evaluator
+# Target rules for targets named Compiler
 
 # Build rule for target.
-Evaluator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Evaluator
-.PHONY : Evaluator
+Compiler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Compiler
+.PHONY : Compiler
 
 # fast build rule for target.
-Evaluator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/build
-.PHONY : Evaluator/fast
+Compiler/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/build
+.PHONY : Compiler/fast
 
 #=============================================================================
 # Target rules for targets named MipScript
@@ -224,30 +224,56 @@ MipScript/fast:
 .PHONY : MipScript/fast
 
 #=============================================================================
-# Target rules for targets named IntegerParsingTest
+# Target rules for targets named IntegerTest
 
 # Build rule for target.
-IntegerParsingTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IntegerParsingTest
-.PHONY : IntegerParsingTest
+IntegerTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IntegerTest
+.PHONY : IntegerTest
 
 # fast build rule for target.
-IntegerParsingTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerParsingTest.dir/build.make CMakeFiles/IntegerParsingTest.dir/build
-.PHONY : IntegerParsingTest/fast
+IntegerTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerTest.dir/build.make CMakeFiles/IntegerTest.dir/build
+.PHONY : IntegerTest/fast
 
 #=============================================================================
-# Target rules for targets named WhitespaceParsingTest
+# Target rules for targets named WhitespaceTest
 
 # Build rule for target.
-WhitespaceParsingTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WhitespaceParsingTest
-.PHONY : WhitespaceParsingTest
+WhitespaceTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WhitespaceTest
+.PHONY : WhitespaceTest
 
 # fast build rule for target.
-WhitespaceParsingTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceParsingTest.dir/build.make CMakeFiles/WhitespaceParsingTest.dir/build
-.PHONY : WhitespaceParsingTest/fast
+WhitespaceTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceTest.dir/build.make CMakeFiles/WhitespaceTest.dir/build
+.PHONY : WhitespaceTest/fast
+
+#=============================================================================
+# Target rules for targets named CommentTest
+
+# Build rule for target.
+CommentTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CommentTest
+.PHONY : CommentTest
+
+# fast build rule for target.
+CommentTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CommentTest.dir/build.make CMakeFiles/CommentTest.dir/build
+.PHONY : CommentTest/fast
+
+#=============================================================================
+# Target rules for targets named AdditionTest
+
+# Build rule for target.
+AdditionTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AdditionTest
+.PHONY : AdditionTest
+
+# fast build rule for target.
+AdditionTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdditionTest.dir/build.make CMakeFiles/AdditionTest.dir/build
+.PHONY : AdditionTest/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -301,29 +327,29 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-src/evaluator/Evaluator.o: src/evaluator/Evaluator.cpp.o
-.PHONY : src/evaluator/Evaluator.o
+src/compiler/compiler.o: src/compiler/compiler.cpp.o
+.PHONY : src/compiler/compiler.o
 
 # target to build an object file
-src/evaluator/Evaluator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/src/evaluator/Evaluator.cpp.o
-.PHONY : src/evaluator/Evaluator.cpp.o
+src/compiler/compiler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/src/compiler/compiler.cpp.o
+.PHONY : src/compiler/compiler.cpp.o
 
-src/evaluator/Evaluator.i: src/evaluator/Evaluator.cpp.i
-.PHONY : src/evaluator/Evaluator.i
+src/compiler/compiler.i: src/compiler/compiler.cpp.i
+.PHONY : src/compiler/compiler.i
 
 # target to preprocess a source file
-src/evaluator/Evaluator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/src/evaluator/Evaluator.cpp.i
-.PHONY : src/evaluator/Evaluator.cpp.i
+src/compiler/compiler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/src/compiler/compiler.cpp.i
+.PHONY : src/compiler/compiler.cpp.i
 
-src/evaluator/Evaluator.s: src/evaluator/Evaluator.cpp.s
-.PHONY : src/evaluator/Evaluator.s
+src/compiler/compiler.s: src/compiler/compiler.cpp.s
+.PHONY : src/compiler/compiler.s
 
 # target to generate assembly for a file
-src/evaluator/Evaluator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Evaluator.dir/build.make CMakeFiles/Evaluator.dir/src/evaluator/Evaluator.cpp.s
-.PHONY : src/evaluator/Evaluator.cpp.s
+src/compiler/compiler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/src/compiler/compiler.cpp.s
+.PHONY : src/compiler/compiler.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -421,53 +447,101 @@ src/parser/SyntaxTree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxTree.cpp.s
 .PHONY : src/parser/SyntaxTree.cpp.s
 
-tests/parsing/test_integers.o: tests/parsing/test_integers.cpp.o
-.PHONY : tests/parsing/test_integers.o
+tests/test_addition.o: tests/test_addition.cpp.o
+.PHONY : tests/test_addition.o
 
 # target to build an object file
-tests/parsing/test_integers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerParsingTest.dir/build.make CMakeFiles/IntegerParsingTest.dir/tests/parsing/test_integers.cpp.o
-.PHONY : tests/parsing/test_integers.cpp.o
+tests/test_addition.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdditionTest.dir/build.make CMakeFiles/AdditionTest.dir/tests/test_addition.cpp.o
+.PHONY : tests/test_addition.cpp.o
 
-tests/parsing/test_integers.i: tests/parsing/test_integers.cpp.i
-.PHONY : tests/parsing/test_integers.i
+tests/test_addition.i: tests/test_addition.cpp.i
+.PHONY : tests/test_addition.i
 
 # target to preprocess a source file
-tests/parsing/test_integers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerParsingTest.dir/build.make CMakeFiles/IntegerParsingTest.dir/tests/parsing/test_integers.cpp.i
-.PHONY : tests/parsing/test_integers.cpp.i
+tests/test_addition.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdditionTest.dir/build.make CMakeFiles/AdditionTest.dir/tests/test_addition.cpp.i
+.PHONY : tests/test_addition.cpp.i
 
-tests/parsing/test_integers.s: tests/parsing/test_integers.cpp.s
-.PHONY : tests/parsing/test_integers.s
+tests/test_addition.s: tests/test_addition.cpp.s
+.PHONY : tests/test_addition.s
 
 # target to generate assembly for a file
-tests/parsing/test_integers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerParsingTest.dir/build.make CMakeFiles/IntegerParsingTest.dir/tests/parsing/test_integers.cpp.s
-.PHONY : tests/parsing/test_integers.cpp.s
+tests/test_addition.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdditionTest.dir/build.make CMakeFiles/AdditionTest.dir/tests/test_addition.cpp.s
+.PHONY : tests/test_addition.cpp.s
 
-tests/parsing/test_whitespace.o: tests/parsing/test_whitespace.cpp.o
-.PHONY : tests/parsing/test_whitespace.o
+tests/test_comments.o: tests/test_comments.cpp.o
+.PHONY : tests/test_comments.o
 
 # target to build an object file
-tests/parsing/test_whitespace.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceParsingTest.dir/build.make CMakeFiles/WhitespaceParsingTest.dir/tests/parsing/test_whitespace.cpp.o
-.PHONY : tests/parsing/test_whitespace.cpp.o
+tests/test_comments.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CommentTest.dir/build.make CMakeFiles/CommentTest.dir/tests/test_comments.cpp.o
+.PHONY : tests/test_comments.cpp.o
 
-tests/parsing/test_whitespace.i: tests/parsing/test_whitespace.cpp.i
-.PHONY : tests/parsing/test_whitespace.i
+tests/test_comments.i: tests/test_comments.cpp.i
+.PHONY : tests/test_comments.i
 
 # target to preprocess a source file
-tests/parsing/test_whitespace.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceParsingTest.dir/build.make CMakeFiles/WhitespaceParsingTest.dir/tests/parsing/test_whitespace.cpp.i
-.PHONY : tests/parsing/test_whitespace.cpp.i
+tests/test_comments.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CommentTest.dir/build.make CMakeFiles/CommentTest.dir/tests/test_comments.cpp.i
+.PHONY : tests/test_comments.cpp.i
 
-tests/parsing/test_whitespace.s: tests/parsing/test_whitespace.cpp.s
-.PHONY : tests/parsing/test_whitespace.s
+tests/test_comments.s: tests/test_comments.cpp.s
+.PHONY : tests/test_comments.s
 
 # target to generate assembly for a file
-tests/parsing/test_whitespace.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceParsingTest.dir/build.make CMakeFiles/WhitespaceParsingTest.dir/tests/parsing/test_whitespace.cpp.s
-.PHONY : tests/parsing/test_whitespace.cpp.s
+tests/test_comments.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CommentTest.dir/build.make CMakeFiles/CommentTest.dir/tests/test_comments.cpp.s
+.PHONY : tests/test_comments.cpp.s
+
+tests/test_integers.o: tests/test_integers.cpp.o
+.PHONY : tests/test_integers.o
+
+# target to build an object file
+tests/test_integers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerTest.dir/build.make CMakeFiles/IntegerTest.dir/tests/test_integers.cpp.o
+.PHONY : tests/test_integers.cpp.o
+
+tests/test_integers.i: tests/test_integers.cpp.i
+.PHONY : tests/test_integers.i
+
+# target to preprocess a source file
+tests/test_integers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerTest.dir/build.make CMakeFiles/IntegerTest.dir/tests/test_integers.cpp.i
+.PHONY : tests/test_integers.cpp.i
+
+tests/test_integers.s: tests/test_integers.cpp.s
+.PHONY : tests/test_integers.s
+
+# target to generate assembly for a file
+tests/test_integers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegerTest.dir/build.make CMakeFiles/IntegerTest.dir/tests/test_integers.cpp.s
+.PHONY : tests/test_integers.cpp.s
+
+tests/test_whitespace.o: tests/test_whitespace.cpp.o
+.PHONY : tests/test_whitespace.o
+
+# target to build an object file
+tests/test_whitespace.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceTest.dir/build.make CMakeFiles/WhitespaceTest.dir/tests/test_whitespace.cpp.o
+.PHONY : tests/test_whitespace.cpp.o
+
+tests/test_whitespace.i: tests/test_whitespace.cpp.i
+.PHONY : tests/test_whitespace.i
+
+# target to preprocess a source file
+tests/test_whitespace.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceTest.dir/build.make CMakeFiles/WhitespaceTest.dir/tests/test_whitespace.cpp.i
+.PHONY : tests/test_whitespace.cpp.i
+
+tests/test_whitespace.s: tests/test_whitespace.cpp.s
+.PHONY : tests/test_whitespace.s
+
+# target to generate assembly for a file
+tests/test_whitespace.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WhitespaceTest.dir/build.make CMakeFiles/WhitespaceTest.dir/tests/test_whitespace.cpp.s
+.PHONY : tests/test_whitespace.cpp.s
 
 # Help Target
 help:
@@ -482,19 +556,21 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... Evaluator"
-	@echo "... IntegerParsingTest"
+	@echo "... AdditionTest"
+	@echo "... CommentTest"
+	@echo "... Compiler"
+	@echo "... IntegerTest"
 	@echo "... MipScript"
 	@echo "... Parser"
 	@echo "... SyntaxTree"
-	@echo "... WhitespaceParsingTest"
+	@echo "... WhitespaceTest"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... src/evaluator/Evaluator.o"
-	@echo "... src/evaluator/Evaluator.i"
-	@echo "... src/evaluator/Evaluator.s"
+	@echo "... src/compiler/compiler.o"
+	@echo "... src/compiler/compiler.i"
+	@echo "... src/compiler/compiler.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -507,12 +583,18 @@ help:
 	@echo "... src/parser/SyntaxTree.o"
 	@echo "... src/parser/SyntaxTree.i"
 	@echo "... src/parser/SyntaxTree.s"
-	@echo "... tests/parsing/test_integers.o"
-	@echo "... tests/parsing/test_integers.i"
-	@echo "... tests/parsing/test_integers.s"
-	@echo "... tests/parsing/test_whitespace.o"
-	@echo "... tests/parsing/test_whitespace.i"
-	@echo "... tests/parsing/test_whitespace.s"
+	@echo "... tests/test_addition.o"
+	@echo "... tests/test_addition.i"
+	@echo "... tests/test_addition.s"
+	@echo "... tests/test_comments.o"
+	@echo "... tests/test_comments.i"
+	@echo "... tests/test_comments.s"
+	@echo "... tests/test_integers.o"
+	@echo "... tests/test_integers.i"
+	@echo "... tests/test_integers.s"
+	@echo "... tests/test_whitespace.o"
+	@echo "... tests/test_whitespace.i"
+	@echo "... tests/test_whitespace.s"
 .PHONY : help
 
 
