@@ -375,77 +375,77 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MipScript.dir/build.make CMakeFiles/MipScript.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/parser/Parser.o: src/parser/Parser.cpp.o
-.PHONY : src/parser/Parser.o
+src/parser/parser.o: src/parser/parser.cpp.o
+.PHONY : src/parser/parser.o
 
 # target to build an object file
-src/parser/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Parser.dir/build.make CMakeFiles/Parser.dir/src/parser/Parser.cpp.o
-.PHONY : src/parser/Parser.cpp.o
+src/parser/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Parser.dir/build.make CMakeFiles/Parser.dir/src/parser/parser.cpp.o
+.PHONY : src/parser/parser.cpp.o
 
-src/parser/Parser.i: src/parser/Parser.cpp.i
-.PHONY : src/parser/Parser.i
+src/parser/parser.i: src/parser/parser.cpp.i
+.PHONY : src/parser/parser.i
 
 # target to preprocess a source file
-src/parser/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Parser.dir/build.make CMakeFiles/Parser.dir/src/parser/Parser.cpp.i
-.PHONY : src/parser/Parser.cpp.i
+src/parser/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Parser.dir/build.make CMakeFiles/Parser.dir/src/parser/parser.cpp.i
+.PHONY : src/parser/parser.cpp.i
 
-src/parser/Parser.s: src/parser/Parser.cpp.s
-.PHONY : src/parser/Parser.s
+src/parser/parser.s: src/parser/parser.cpp.s
+.PHONY : src/parser/parser.s
 
 # target to generate assembly for a file
-src/parser/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Parser.dir/build.make CMakeFiles/Parser.dir/src/parser/Parser.cpp.s
-.PHONY : src/parser/Parser.cpp.s
+src/parser/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Parser.dir/build.make CMakeFiles/Parser.dir/src/parser/parser.cpp.s
+.PHONY : src/parser/parser.cpp.s
 
-src/parser/SyntaxNode.o: src/parser/SyntaxNode.cpp.o
-.PHONY : src/parser/SyntaxNode.o
+src/parser/syntaxNode.o: src/parser/syntaxNode.cpp.o
+.PHONY : src/parser/syntaxNode.o
 
 # target to build an object file
-src/parser/SyntaxNode.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxNode.cpp.o
-.PHONY : src/parser/SyntaxNode.cpp.o
+src/parser/syntaxNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/syntaxNode.cpp.o
+.PHONY : src/parser/syntaxNode.cpp.o
 
-src/parser/SyntaxNode.i: src/parser/SyntaxNode.cpp.i
-.PHONY : src/parser/SyntaxNode.i
+src/parser/syntaxNode.i: src/parser/syntaxNode.cpp.i
+.PHONY : src/parser/syntaxNode.i
 
 # target to preprocess a source file
-src/parser/SyntaxNode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxNode.cpp.i
-.PHONY : src/parser/SyntaxNode.cpp.i
+src/parser/syntaxNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/syntaxNode.cpp.i
+.PHONY : src/parser/syntaxNode.cpp.i
 
-src/parser/SyntaxNode.s: src/parser/SyntaxNode.cpp.s
-.PHONY : src/parser/SyntaxNode.s
+src/parser/syntaxNode.s: src/parser/syntaxNode.cpp.s
+.PHONY : src/parser/syntaxNode.s
 
 # target to generate assembly for a file
-src/parser/SyntaxNode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxNode.cpp.s
-.PHONY : src/parser/SyntaxNode.cpp.s
+src/parser/syntaxNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/syntaxNode.cpp.s
+.PHONY : src/parser/syntaxNode.cpp.s
 
-src/parser/SyntaxTree.o: src/parser/SyntaxTree.cpp.o
-.PHONY : src/parser/SyntaxTree.o
+src/parser/syntaxTree.o: src/parser/syntaxTree.cpp.o
+.PHONY : src/parser/syntaxTree.o
 
 # target to build an object file
-src/parser/SyntaxTree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxTree.cpp.o
-.PHONY : src/parser/SyntaxTree.cpp.o
+src/parser/syntaxTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/syntaxTree.cpp.o
+.PHONY : src/parser/syntaxTree.cpp.o
 
-src/parser/SyntaxTree.i: src/parser/SyntaxTree.cpp.i
-.PHONY : src/parser/SyntaxTree.i
+src/parser/syntaxTree.i: src/parser/syntaxTree.cpp.i
+.PHONY : src/parser/syntaxTree.i
 
 # target to preprocess a source file
-src/parser/SyntaxTree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxTree.cpp.i
-.PHONY : src/parser/SyntaxTree.cpp.i
+src/parser/syntaxTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/syntaxTree.cpp.i
+.PHONY : src/parser/syntaxTree.cpp.i
 
-src/parser/SyntaxTree.s: src/parser/SyntaxTree.cpp.s
-.PHONY : src/parser/SyntaxTree.s
+src/parser/syntaxTree.s: src/parser/syntaxTree.cpp.s
+.PHONY : src/parser/syntaxTree.s
 
 # target to generate assembly for a file
-src/parser/SyntaxTree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/SyntaxTree.cpp.s
-.PHONY : src/parser/SyntaxTree.cpp.s
+src/parser/syntaxTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyntaxTree.dir/build.make CMakeFiles/SyntaxTree.dir/src/parser/syntaxTree.cpp.s
+.PHONY : src/parser/syntaxTree.cpp.s
 
 tests/test_addition.o: tests/test_addition.cpp.o
 .PHONY : tests/test_addition.o
@@ -574,15 +574,15 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/parser/Parser.o"
-	@echo "... src/parser/Parser.i"
-	@echo "... src/parser/Parser.s"
-	@echo "... src/parser/SyntaxNode.o"
-	@echo "... src/parser/SyntaxNode.i"
-	@echo "... src/parser/SyntaxNode.s"
-	@echo "... src/parser/SyntaxTree.o"
-	@echo "... src/parser/SyntaxTree.i"
-	@echo "... src/parser/SyntaxTree.s"
+	@echo "... src/parser/parser.o"
+	@echo "... src/parser/parser.i"
+	@echo "... src/parser/parser.s"
+	@echo "... src/parser/syntaxNode.o"
+	@echo "... src/parser/syntaxNode.i"
+	@echo "... src/parser/syntaxNode.s"
+	@echo "... src/parser/syntaxTree.o"
+	@echo "... src/parser/syntaxTree.i"
+	@echo "... src/parser/syntaxTree.s"
 	@echo "... tests/test_addition.o"
 	@echo "... tests/test_addition.i"
 	@echo "... tests/test_addition.s"
