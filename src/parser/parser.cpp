@@ -147,6 +147,13 @@ void Parser::parseStatement(SyntaxNode* root, std::string &statement) {
 
     }
 
+    if(statement[i] == ';') {
+        removeLeadingWhitespace(statement);
+        statement = statement.substr(i+1);
+        if(statement != "")
+            parseStatement(root, statement);
+    }
+
 }
 
 
@@ -160,18 +167,49 @@ void Parser::arithmeticExpression(SyntaxNode* node, std::string& statement) {
     }
 
     std::string token = "";
+    char op = ' ';
     int i = 0;
     while(statement[i] != ' ' && statement[i] != ';' && statement[i] != ')' && statement.length() > i) {
+        if (statement[i] == '+' || statement[i] == '-' || statement[i] == '*' || statement[i] == '/') {
+            op = statement[i];
+            break;
+        }
         token += statement[i];
         i++;
     }
 
     std::cout << "Token: " << token << std::endl;
+    SyntaxNode *temp;
 
     if(symbolTable.find(token) == symbolTable.end()) {
-        node->addChild(new SyntaxNode(VALUE, token));
+        temp = new SyntaxNode(VALUE, token);
     } else {
-        node->addChild(new SyntaxNode(VARIABLE, token));
+        temp = new SyntaxNode(VARIABLE, token);
+    }
+
+    if(op != ' ') {
+        SyntaxNode* opNode;
+        switch(op) {
+            case '+':
+                opNode = new SyntaxNode(ADD);
+                break;
+            case '-':
+                opNode = new SyntaxNode(SUB);
+                break;
+            case '*':
+                opNode = new SyntaxNode(MUL);
+                break;
+            case '/':
+                opNode = new SyntaxNode(DIV);
+                break;
+        }
+
+        node->addChild(opNode);
+        opNode->addChild(temp);
+        statement = statement.substr(i+1);
+        arithmeticExpression(opNode, statement);
+    } else {
+        node->addChild(temp);
     }
 
     
